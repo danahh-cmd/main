@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>لعبة الدفاع السيبراني</title>
+<style>
+body {
+  font-family: "Cairo", sans-serif;
+  text-align: center;
+  background-color: #f5f5f5;
+  color: #333;
+  direction: rtl;
+  margin: 40px;
+}
+
+h1 {
+  color: #3c3c3c;
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 25px;
+}
+
+.question {
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.option {
+  background-color: #e5d4b1;
+  border: none;
+  padding: 12px 20px;
+  margin: 8px auto;
+  border-radius: 8px;
+  cursor: pointer;
+  display: block; /* makes them appear under each other */
+  width: 60%;
+  transition: background-color 0.3s;
+}
+
+.option:hover {
+  background-color: #d4b98c;
+}
+
+.hidden {
+  display: none;
+}
+</style>
+</head>
+<body>
+
+<h1>🛡️ لعبة الدفاع السيبراني</h1>
+<p>اختر الإجابة الصحيحة لحماية نفسك من الهجمات السيبرانية!</p>
+
+<!-- Question 1 -->
+<div id="question1">
+  <div class="question">📧 وصلك بريد إلكتروني مريب يطلب معلومات تسجيل الدخول، ماذا تفعل؟</div>
+  <div class="option" onclick="wrongAnswer()">أدخل المعلومات بسرعة</div>
+  <div class="option" onclick="nextQuestion('question1','question2')">تحقق من المرسل قبل القيام بأي إجراء</div>
+  <div class="option" onclick="wrongAnswer()">تجاهله تمامًا</div>
+</div>
+
+<!-- Question 2 -->
+<div id="question2" class="hidden">
+  <div class="question">🔒 زميلك في العمل يطلب منك إرسال كلمة مرور عبر الرسائل، ما التصرف الصحيح؟</div>
+  <div class="option" onclick="wrongAnswer()">أرسلها لأنه شخص موثوق</div>
+  <div class="option" onclick="nextQuestion('question2','question3')">لا تشارك كلمات المرور أبدًا حتى لو كان الطلب من زميل</div>
+  <div class="option" onclick="wrongAnswer()">شاركها ثم غيّر الكلمة لاحقًا</div>
+</div>
+
+<!-- Question 3 -->
+<div id="question3" class="hidden">
+  <div class="question">📱 تتلقى رسالة تقول إنك ربحت جائزة وتطلب الضغط على رابط، ماذا تفعل؟</div>
+  <div class="option" onclick="wrongAnswer()">اضغط على الرابط لترى الجائزة</div>
+  <div class="option" onclick="wrongAnswer()">أرسل الرسالة لأصدقائك ليستفيدوا</div>
+  <div class="option" onclick="nextQuestion('question3','question4')">احذف الرسالة ولا تضغط على أي رابط</div>
+</div>
+
+<!-- Question 4 -->
+<div id="question4" class="hidden">
+  <div class="question">💻 جهازك يطلب تحديثًا جديدًا للنظام، ما أفضل تصرف؟</div>
+  <div class="option" onclick="wrongAnswer()">تتجاهل التحديث لأنه غير ضروري</div>
+  <div class="option" onclick="nextQuestion('question4','question5')">تحدث النظام بانتظام لضمان الأمان</div>
+  <div class="option" onclick="wrongAnswer()">تنزل أي تحديث من موقع عشوائي</div>
+</div>
+
+<!-- Question 5 -->
+<div id="question5" class="hidden">
+  <div class="question">🧠 أثناء تصفح الإنترنت، يُطلب منك تثبيت إضافة غير معروفة، ماذا تفعل؟</div>
+  <div class="option" onclick="wrongAnswer()">تثبتها لتجربها</div>
+  <div class="option" onclick="nextQuestion('question5','winScreen')">تتأكد من مصدرها الرسمي قبل التثبيت أو تتجنبها</div>
+  <div class="option" onclick="wrongAnswer()">تتجاهل التحذيرات وتكمل التثبيت</div>
+</div>
+
+<!-- Win Screen -->
+<div id="winScreen" class="hidden">
+  <h2>🎉 أحسنت!</h2>
+  <p>لقد نجحت في حماية نفسك من التهديدات السيبرانية! 🛡️</p>
+</div>
+
+<script>
+function nextQuestion(currentId, nextId) {
+  document.getElementById(currentId).classList.add("hidden");
+  document.getElementById(nextId).classList.remove("hidden");
+}
+
+function wrongAnswer() {
+  alert("❌ إجابة غير صحيحة! حاول مرة أخرى.");
+}
+</script>
+
+</body>
+</html>
